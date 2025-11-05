@@ -11,12 +11,46 @@
     <packaging>jar</packaging>
     <name>provider-demo</name>
 
-    <dependencies>
-        <!-- TSF 启动器 -->
-        <dependency>
-            <groupId>com.tencent.tsf</groupId>
-            <artifactId>spring-cloud-tsf-starter</artifactId>
-        </dependency>
-
-    </dependencies>
+    <profiles>
+        <profile>
+            <id>bes</id>
+            <build>
+                <finalName>bes</finalName>
+            </build>
+            <dependencies>
+                <!-- TSF 启动器 -->
+                <dependency>
+                    <groupId>com.tencent.tsf</groupId>
+                    <artifactId>spring-cloud-tsf-starter</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.apache.tomcat.embed</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>com.bes.appserver</groupId>
+                    <artifactId>bes-lite-spring-boot-starter</artifactId>
+                    <version>9.5.5.013</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>tomcat</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <finalName>tomcat</finalName>
+            </build>
+            <dependencies>
+                <!-- TSF 启动器 -->
+                <dependency>
+                    <groupId>com.tencent.tsf</groupId>
+                    <artifactId>spring-cloud-tsf-starter</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>

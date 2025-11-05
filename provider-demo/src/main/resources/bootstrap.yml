@@ -1,5 +1,12 @@
 server:
-  port: 18081
+  port: 8081
+  bes:
+    max-threads: 300
+    min-spare-threads: 8
+    max-keep-alive-requests: -1
+  tomcat:
+    threads:
+      max: 300
 spring:
   application:
     name: provider-demo
