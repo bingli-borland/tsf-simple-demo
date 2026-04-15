@@ -1,26 +1,43 @@
-spring:
-  application:
-    name: msgw-zuul1
-
-# 设置超时
-ribbon:
-  ReadTimeout: 10000
-  ConnectTimeout: 5000
-
 hystrix:
   command:
     default:
-      execution:
-        timeout:
-          enabled: false
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 30000
+      circuitBreaker:
+        enabled: false
+spring:
+  application:
+    name: msgw-zuul1
+feign:
+  httpclient:
+    enabled: false
+server:
+  port: 12001
+  tomcat:
+    accept-count: 500
+    min-spare-threads: 50
+    max-threads: 1500
+    max-connections: 20000
+
+# 设置超时
+ribbon:
+  ReadTimeout: 60000
+  SocketTimeout: 60000
+  ConnectTimeout: 60000
+  maxConnectionsPerHost: 500
+  maxTotalConnections: 2000
 logging:
   file: /tsf-demo-logs/${spring.application.name}/root.log
   level:
     root: INFO
 tct:
-  enabled: false
+  gateway:
+    api-manager:
+      enabled: false  # 尝试关闭 TSF 扩展的 API 管理功能
 zuul:
-  sensitive-headers: 
+  semaphore:
+    maxSemaphores: 20000
+  sensitive-headers:
+  routes:
+    api-v1:
+      path: /provider-demo/**         # /provider-demo/ 前缀的请求转发走服务发现转发到 provider-demo 实例上，跨命名空间配置参考这里
+      serviceId: provider-demo        # 走服务发现
+      stripPrefix: true

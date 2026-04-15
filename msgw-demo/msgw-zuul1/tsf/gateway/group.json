@@ -1,0 +1,22 @@
+{
+	"gatewayName": "test-group",
+	"gatewayGroupId": "group-yrlkqnly",
+	"reversion": 24,
+	"updatedTime": "2021-03-29 11:56:52",
+	"result": [
+		{
+			"groupId": "grp-60khzyb4",
+			"groupName": "group1",
+			"groupContext": "/test_group1",
+			"authMode": "none",
+			"groupType": "ms"
+		},
+		{
+			"groupId": "grp-sh1b4f4w",
+			"groupName": "group2",
+			"groupContext": "/test_group2",
+			"authMode": "none",
+			"groupType": "ms"
+		}
+	]
+}

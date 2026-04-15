@@ -1,0 +1,32 @@
+{
+	"gatewayName": "test-group",
+	"gatewayGroupId": "group-yrlkqnly",
+	"reversion": 80,
+	"updatedTime": "2021-03-29 11:56:52",
+	"result": [
+		{
+			"apiId": "api-c5zjvdbq",
+			"groupId": "grp-60khzyb4",
+			"path": "/echo/{param}",
+			"method": "GET",
+			"serviceName": "provider-demo",
+			"namespaceId": "namespace-v6m6pp5a",
+			"namespaceName": "test_namespace",
+			"usableStatus": "enabled",
+			"pathMapping": "/echo/{param}",
+			"apiType": "ms"
+		},
+		{
+			"apiId": "api-lc5cxghw",
+			"groupId": "grp-60khzyb4",
+			"path": "/echo/slow/{param}",
+			"method": "GET",
+			"serviceName": "provider-demo",
+			"namespaceId": "namespace-v6m6pp5a",
+			"namespaceName": "test_namespace",
+			"usableStatus": "enabled",
+			"pathMapping": "/echo/slow/{param}",
+			"apiType": "ms"
+		}
+	]
+}
