@@ -1,5 +1,16 @@
 server:
   port: 18081
+  tomcat:
+    keep-alive-timeout: 10000
+    max-keep-alive-requests: 1024
+  bes:
+    keep-alive-timeout: 10
+    max-keep-alive-requests: 1024
+    use-keep-alive-response-header: true
 spring:
   application:
     name: provider-demo
+  cloud:
+    consul:
+      host: 8.134.165.212
+      port: 8500

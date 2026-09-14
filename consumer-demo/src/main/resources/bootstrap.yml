@@ -3,7 +3,13 @@ server:
 spring:
   application:
     name: consumer-demo
-
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+    consul:
+      host: 8.134.165.212
+      port: 8500
 feign:
   tsf:
     enabled: true
