@@ -1,0 +1,29 @@
+server:
+  port: 18091
+
+# 服务端 keep-alive 空闲连接超时干预（毫秒）: 0 = 不干预（默认形态，使用引擎默认值 ——
+# Tomcat: 未设置 keepAliveTimeout 时回退 connectionTimeout=20s；BES: server.config keep-alive-timeout=60s）。
+# >0 时仅作用于嵌入式 Tomcat 连接器（BES 形态请用 server.bes.keep-alive-timeout / server.tomcat.keep-alive-timeout）。
+# 注意: 该值须小于客户端 JDK HttpURLConnection 连接缓存的约 5 秒才能复现空闲复用报错。
+ribbon-server:
+  keep-alive-timeout-ms: 0
+
+spring:
+  application:
+    name: tsf-ribbon-server
+  cloud:
+    consul:
+      enabled: false
+      config:
+        enabled: false
+        fail-fast: false
+
+logging:
+  level:
+    root: INFO
+  pattern:
+    level: "%-5level [${spring.application.name},%mdc{trace_id},%mdc{span_id},]"
+
+# 本地自测（无 TSF 控制台时避免注册中心连接报错）
+tsf_namespace_id: default_namespace
+eureka.client.enabled: false

@@ -16,6 +16,8 @@
     <modules>
         <module>provider-demo</module>
         <module>consumer-demo</module>
+        <module>tsf-ribbon-server</module>
+        <module>tsf-ribbon-client</module>
         <module>msgw-demo</module>
     </modules>
 

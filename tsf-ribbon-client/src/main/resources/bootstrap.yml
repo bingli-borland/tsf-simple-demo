@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: tsf-ribbon-client
+  cloud:
+    consul:
+      enabled: false
+      config:
+        enabled: false
+        fail-fast: false
